@@ -1,0 +1,198 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>STL之vector | 小白程序员的note</title>
+  <meta name="author" content="看萌baby">
+  
+  <meta name="description" content="爱音乐，爱生活。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="STL之vector"/>
+  <meta property="og:site_name" content="小白程序员的note"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="小白程序员的note" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">小白程序员的note</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-10-20T14:26:25.000Z"><a href="/2015/10/20/c++_STL之vector/">2015-10-20</a></time>
+      
+      
+  
+    <h1 class="title">STL之vector</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>头文件及声明<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Allocator = allocator&lt;T&gt;&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="built_in">vector</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>size and capacity<br>vector在内存分配不足的时候会采取重新分配的方式，这将会导致很大的开销，因此，可以在使用前调用<code>reserve(int)</code>函数来主动分配一大块内存空间。但是该函数的分配的空间必须比原来的大，不能收缩内存，因此可以用<code>shrink_to_fit()</code>函数来压缩空间到合适的程度，但是该函数并不保证一定会有效执行，仅仅是发送一个请求而已,如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">v.shrink_to_fit(); <span class="comment">//并不保证执行，c++11的函数</span></span><br><span class="line"><span class="comment">//在c++11之前可以这样</span></span><br><span class="line"><span class="built_in">std</span>::<span class="built_in">vector</span>&lt;T&gt;(v).swap(v);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>赋值操作</p>
+</li>
+</ul>
+<p>c.assign(n, elem)<br>c.assign(beg, end)<br>c.assign(initlist)</p>
+<ul>
+<li>插入和删除</li>
+</ul>
+<p>vector并不提供删除某一个特定值的功能，因此这需要用到remove来做到，如：<code>coll.earse(remove(coll.begin(), coll.end(), val), coll.end())</code>remove函数并非真正的删除，而是将所有的val移动到vector的尾部，并返回新的尾后迭代器，即第一个要删除的val，然后使用earse删除。</p>
+<p>考虑到对于插入删除性能的考虑，在进行这些操作时应该注意一下三点：1.插入和删除尽量在尾部进行；2.保证容量足够大；3.一次性插入大量元素而不是分多次进行。</p>
+<ul>
+<li>作为c数组使用<br>和array一样永远data函数返回一个指针。</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/c艹/">c艹</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://lee3164.com/2015/10/20/c++_STL之vector/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:lee3164.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/boost/">boost</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c</a><small>3</small></li>
+  
+    <li><a href="/tags/c艹/">c艹</a><small>21</small></li>
+  
+    <li><a href="/tags/操作系统/">操作系统</a><small>1</small></li>
+  
+    <li><a href="/tags/数据结构与算法/">数据结构与算法</a><small>1</small></li>
+  
+    <li><a href="/tags/面试题/">面试题</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 看萌baby
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

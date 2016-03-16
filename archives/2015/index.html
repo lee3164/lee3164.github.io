@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>归档：2015 | 小白程序员的note</title>
+  <meta name="author" content="看萌baby">
+  
+  <meta name="description" content="爱音乐，爱生活。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="小白程序员的note"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="小白程序员的note" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">小白程序员的note</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+<h2 class="archive-title">2015</h2>
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-11T12:36:58.000Z"><a href="/2015/12/11/mst_leetcode第9题/">2015-12-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/11/mst_leetcode第9题/">leetcode第9题</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>题目：Determine whether an integer is a palindrome. Do this without extra space.</li>
+<li>解析：判断一个数字是否是回文数，即如123321,98789类似的数字，首先负数不是回文数，以0结尾的非负数不是回文数，对于一般的非负数字，只需要将整个数字反转判断是否相等即可，但是一个int类型反转有可能会溢出，这里用到了一个技巧，即反转一半，如123321反转一般，剩下的为123，得到的为123，相等就是回文数字，对于12321，反转后为12，得到的是123，如何判断呢，只需要将得到的除以10就可以判断啦，若想等极为回文数，代码如下，运行时间60ms。</li>
+</ul>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/12/11/mst_leetcode第9题/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-11T02:38:26.000Z"><a href="/2015/12/11/sjjg_图相关/">2015-12-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/11/sjjg_图相关/">图相关</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>###1. 图的表示</p>
+<ul>
+<li>邻接矩阵：这种表示方式存储了每一个顶点，因此大小为$o(n^2)$,对于那些稀疏矩阵来说很浪费空间。</li>
+<li>邻接表：存储每一个顶点和其他顶点的关系时将其顶点按升序排列，可以快速定位至某一顶点。</li>
+</ul>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/12/11/sjjg_图相关/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-10T10:13:35.000Z"><a href="/2015/12/10/c++_STL之set，multiset/">2015-12-10</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/10/c++_STL之set，multiset/">STL之set，multiset</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>头文件及声明<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T,</span><br><span class="line">              <span class="keyword">typename</span> Compare = less&lt;T&gt;,</span><br><span class="line">              <span class="keyword">typename</span> Allocator = allocator&lt;T&gt;&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="built_in">set</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T,</span><br><span class="line">              <span class="keyword">typename</span> Compare = less&lt;T&gt;,</span><br><span class="line">              <span class="keyword">typename</span> Allocator = allocator&lt;T&gt;&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="built_in">multiset</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/12/10/c++_STL之set，multiset/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-04T03:16:10.000Z"><a href="/2015/12/04/leetcode第8题/">2015-12-04</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/04/leetcode第8题/">leetcode第8题</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>题目大意是实现自己的atoi函数，即将将字符串中的数字转换为int型，如果不能转换则将其转换为0，若超过整形范围。则以最大值或最小值保存。代码如下，运行时间12ms.ret保存的是结果，sign标记第一个字符是+或-，代码首先将i定位到第一个不是空格的位置，base保存了INT_MAX/10的结果，若ret&gt;base了，则ret<em>10必定大于INT_MAX，若ret=base，而INT_MAX-ret</em>10 =7,则说明当前的字符不能大于7，否则就超过了最大整数.。</p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/12/04/leetcode第8题/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-12-01T08:35:38.000Z"><a href="/2015/12/01/c++_STL之map，multimap/">2015-12-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/12/01/c++_STL之map，multimap/">STL之map，multimap</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>头文件及声明<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Key, <span class="keyword">typename</span> T,</span><br><span class="line">              <span class="keyword">typename</span> Compare = less&lt;key&gt;,</span><br><span class="line">              <span class="keyword">typename</span> Allocator = allocator&lt;pair&lt;<span class="keyword">const</span> Key, T&gt;&gt;&gt;</span><br><span class="line">             <span class="keyword">class</span> <span class="built_in">map</span>; </span><br><span class="line">             </span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Key, <span class="keyword">typename</span> T,</span><br><span class="line">              <span class="keyword">typename</span> Compare = less&lt;key&gt;,</span><br><span class="line">              <span class="keyword">typename</span> Allocator = allocator&lt;pair&lt;<span class="keyword">const</span> Key, T&gt;&gt;&gt;</span><br><span class="line">             <span class="keyword">class</span> <span class="built_in">multimap</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2015/12/01/c++_STL之map，multimap/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+
+  <nav id="pagination">
+  
+  
+    <a href="/archives/2015/page/2/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav>
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:lee3164.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/boost/">boost</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c</a><small>3</small></li>
+  
+    <li><a href="/tags/c艹/">c艹</a><small>21</small></li>
+  
+    <li><a href="/tags/操作系统/">操作系统</a><small>1</small></li>
+  
+    <li><a href="/tags/数据结构与算法/">数据结构与算法</a><small>1</small></li>
+  
+    <li><a href="/tags/面试题/">面试题</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 看萌baby
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

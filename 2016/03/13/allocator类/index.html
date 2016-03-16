@@ -1,0 +1,184 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>allocator类 | 小白程序员的note</title>
+  <meta name="author" content="看萌baby">
+  
+  <meta name="description" content="爱音乐，爱生活。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="allocator类"/>
+  <meta property="og:site_name" content="小白程序员的note"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="小白程序员的note" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">小白程序员的note</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-13T08:36:59.000Z"><a href="/2016/03/13/allocator类/">2016-03-13</a></time>
+      
+      
+  
+    <h1 class="title">allocator类</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>new和delete的局限性<br>new在使用时将分配内存与初始化结合在了一起，而delete将析构与释放内存结合在了一起。对于单个对象的分配与析构，这毫无问题。但对于大量的元素，也许我们并不知道需要多少个对象，仅仅只是先分配一块内存，真正需要时再进行构造。<a id="more"></a></li>
+<li><p>allocator说明<br>allocator定义在memory头文件中，这是一个模板类，初始化时必须指定欲分配对象的类型。<br><code>allocator&lt;T&gt; a</code>定义allocator对象<br><code>a.allocate(n)</code>分配一段原始的，未构造的内存，大小为n个T类型大小，返回相应的指针。<br><code>a.deallocate(p, n)</code>释放p指向的内存，p由上一步得到，调用之前必须先对其中的T类型进行析构。<br><code>a.construct(p, args)</code>构造p所指向的内存。<br><code>a.destroy(p)</code>析构p所指的对象。</p>
+</li>
+<li><p>拷贝和填充未初始化内存的算法<br>标准库还未allocator定义两个伴随算法，定义在memory头文件中。如下：<br><code>uninitialized_copy(beg, end, p)</code>用beg和end范围内的值构造p所指向的原始内存。<br><code>uninitialized_copy_n(beg, n, p)</code>用beg为起点，n个值构造p所指向的原始内存。<br><code>uninitialized_fill(b, e, t)</code>在原始内存b到e范围内用t的拷贝构造。<br><code>uninitialized_fill_n(b, n, t)</code>在原始内存b开始处向后构造n个，值为t的拷贝。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/c艹/">c艹</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://lee3164.com/2016/03/13/allocator类/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:lee3164.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/boost/">boost</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c</a><small>3</small></li>
+  
+    <li><a href="/tags/c艹/">c艹</a><small>21</small></li>
+  
+    <li><a href="/tags/操作系统/">操作系统</a><small>1</small></li>
+  
+    <li><a href="/tags/数据结构与算法/">数据结构与算法</a><small>1</small></li>
+  
+    <li><a href="/tags/面试题/">面试题</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 看萌baby
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

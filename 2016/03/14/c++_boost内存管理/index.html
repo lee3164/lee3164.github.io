@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>boost内存管理 | 小白程序员的note</title>
+  <meta name="author" content="看萌baby">
+  
+  <meta name="description" content="爱音乐，爱生活。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="boost内存管理"/>
+  <meta property="og:site_name" content="小白程序员的note"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="小白程序员的note" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">小白程序员的note</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-14T03:11:00.000Z"><a href="/2016/03/14/c++_boost内存管理/">2016-03-14</a></time>
+      
+      
+  
+    <h1 class="title">boost内存管理</h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>Boost库提供了6种智能指针，位于boost命名空间。分别为shared_ptr、weak_ptr、scoped_ptr、scoped_array、shared_array、intrusive_ptr。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;boost/smart_ptr.hpp&gt;</span><br><span class="line">using namespace std;</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h3 id="1-scoped-ptr"><a href="#1-scoped-ptr" class="headerlink" title="1.scoped_ptr"></a>1.scoped_ptr</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">template &lt;typename T&gt;</span><br><span class="line">class scoped_ptr</span><br><span class="line">&#123;	</span><br><span class="line">private:</span><br><span class="line">	T* px;</span><br><span class="line">	scoped_ptr(scoped_ptr const &amp;); //C++11可将函数声明为delete</span><br><span class="line">	scoped_ptr&amp; operator=(scoped_ptr const &amp;);</span><br><span class="line">	public:</span><br><span class="line">	explicit scoped_ptr(T* p = 0);</span><br><span class="line">	explicit scoped_ptr(std::auto_ptr&lt;T&gt; p);</span><br><span class="line">	~scoped_ptr();</span><br><span class="line">	void reset(T* p = 0);</span><br><span class="line">	T&amp; operator*() const;</span><br><span class="line">	T* operator-&gt; const;</span><br><span class="line">	T* get() const;</span><br><span class="line">	operator bool() const; //重载了bool转换</span><br><span class="line">	void swap(scoped_ptr&amp; b)；</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>类解析<br>通过将拷贝构造函数和拷贝赋值运算符声明为private的，起到了禁止拷贝和赋值的作用，保证被它管理的指针不能被转让所有权。在c++11中可将函数声明为delete达到同样效果。get()函数返回底层原始指针，不能对此指针delete，否则scoped_ptr析构时将再次delete一次，发生错误。</p>
+</li>
+<li><p>用法<br>定义一个scoped_ptr：<br><code>scoped_ptr&lt;string&gt; sp(“this is a test”);</code><br>行为如同常规的指针，有解引用*和-&gt;运算符，但是没有重载++运算符，不能进行++sp这样的操作。但是无需进行手动的delete，因为这个类在离开其作用域之后会自动的进行销毁。</p>
+</li>
+<li><p>scoped_ptr与auto_ptr的区别<br>根本性区别在于指针的所有权，auto_ptr被定义为可转移的，具有赋值拷贝等操作。然而scoped_ptr没有，后者保证了指针的绝对安全。共同缺陷，都不能作为容器的元素，前者是因为没有转移语义，后者是因为无法拷贝和赋值。</p>
+</li>
+<li><p>scoped_ptr与unique_ptr的区别<br>unique_ptr相当于结合了scoped_ptr和scoped_array的功能，基本能力相同，但是unique_ptr拥有更多的功能，可以像原始指针一样比较（定义了相关比较的操作），可以定义删除器，可以放入容器，一般可用unique_ptr来代替scoped_ptr。</p>
+</li>
+</ul>
+<h3 id="2-scoped-array"><a href="#2-scoped-array" class="headerlink" title="2.scoped_array"></a>2.scoped_array</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;tyname T&gt;</span><br><span class="line"><span class="keyword">class</span> scoped_array</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">explicit</span> <span class="title">scoped_array</span><span class="params">(T* p = <span class="number">0</span>)</span></span>;</span><br><span class="line">	~scoped_array();</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">reset</span><span class="params">(T* p = <span class="number">0</span>)</span></span>;</span><br><span class="line">	T&amp; <span class="keyword">operator</span>[](<span class="built_in">std</span>::<span class="keyword">ptrdiff_t</span> i) <span class="keyword">const</span>;</span><br><span class="line">	<span class="function">T* <span class="title">get</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">operator</span> <span class="title">bool</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(scoped_array&amp; b)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>类解析<br>接受的指针必须是new[]的结果，不能是new的结果；<br>没有重载*和-&gt;操作符；<br>析构函数调用的是delete[]，而不是delete；<br>提供了[]操作符，可以像数组一样操作；<br>没有提供相关的迭代器操作。</p>
+</li>
+<li><p>用法<br>通常scoped_array的创建方式是这样的：<br><code>scoped_array&lt;int&gt; sa(new int[100]);</code><br>由于重载了[]，因此用起来像个数组一样，但不能提供“数组首地址+N”的方式访问数组：<br><code>sa[0] = 10; //正确</code><br><code>*(sa+1) = 20; //错误</code></p>
+</li>
+<li><p>使用建议<br>功能有限，无法实现动态增长，不能搭配STL算法，无迭代器支持，推荐使用vector而不是scoped_array。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/c艹/">c艹</a>, <a href="/tags/boost/">boost</a>
+  </div>
+
+        
+  <div class="addthis addthis_toolbox addthis_default_style">
+    
+      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+    
+    
+      <a class="addthis_button_tweet"></a>
+    
+    
+      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    
+    
+      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
+    
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+<section id="comment">
+  <h1 class="title">留言</h1>
+
+  
+      <div id="fb-root"></div>
+<script>
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-comments" data-href="http://lee3164.com/2016/03/14/c++_boost内存管理/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
+      
+  
+</section>
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:lee3164.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/boost/">boost</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c</a><small>3</small></li>
+  
+    <li><a href="/tags/c艹/">c艹</a><small>21</small></li>
+  
+    <li><a href="/tags/操作系统/">操作系统</a><small>1</small></li>
+  
+    <li><a href="/tags/数据结构与算法/">数据结构与算法</a><small>1</small></li>
+  
+    <li><a href="/tags/面试题/">面试题</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 看萌baby
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

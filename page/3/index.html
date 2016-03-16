@@ -1,0 +1,299 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 3 页 | 小白程序员的note</title>
+  <meta name="author" content="看萌baby">
+  
+  <meta name="description" content="爱音乐，爱生活。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="小白程序员的note"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="小白程序员的note" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">小白程序员的note</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-02-23T12:18:38.000Z"><a href="/2016/02/23/c++_运算符重载/">2016-02-23</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/02/23/c++_运算符重载/">运算符重载</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>输入输出运算符：输入输出运算符必须是非成员函数，一般将其声明为友元。输入运算符必须处理输入可能失败的情况，输出则不需要。</li>
+<li>算数和关系运算符：关系运算符中的一个应该把工作委托给另一个，如果一个类在逻辑上有相等性的含义，则该类应该定义operator==；由于很多工作可以委托给另外一个运算符，可以写一个通用的类来定义其他的运算符，减少代码量（参考boost/operator.hpp），如下：</li>
+</ul>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/02/23/c++_运算符重载/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-21T05:46:36.000Z"><a href="/2016/01/21/c++_关于auto/">2016-01-21</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/21/c++_关于auto/">关于auto</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>auto一般会忽略顶层const，如<code>const int i = 0; auto j = i;</code><br>则j的类型是int，可以显示的加上const，即`const auto j = i;</p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-18T06:03:46.000Z"><a href="/2016/01/18/c++_关于decltype/">2016-01-18</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/18/c++_关于decltype/">关于decltype</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>delctype会得带正确的数据类型，不会去除顶层const特性。decltype内部可以是表达式。如<code>decltype(42)</code>得到了int类型，有一点要注意就是对于一个指针的解引用用decltype会得到相对应的引用类型比如：<code>int *p=&amp;i;decltype(*p) q;</code>得到的是<code>int&amp;</code>类型并非int类型，还有一点，<code>decltype((variable))</code>的结果永远是引用，而<code>decltype(variable)</code>只有当variable是引用时才是引用。<br>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/01/18/c++_关于decltype/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-13T03:07:34.000Z"><a href="/2016/01/13/c++_RTTI/">2016-01-13</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/13/c++_RTTI/">RTTI</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>RTTI的作用<br>每个类对象都具有静态类型和动态类型，静态类型在编译的时候就已知，而动态类型在运行的时候才能确定。虽然有虚函数，但是虚函数有其局限性。</li>
+</ul>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/01/13/c++_RTTI/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-01-11T07:03:42.000Z"><a href="/2016/01/11/c++_迭代器相关/">2016-01-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/01/11/c++_迭代器相关/">迭代器相关</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>迭代器类别：输入迭代器，输出迭代器，前向迭代器，双向迭代器，随机存取迭代器。<br>迭代器适配器：插入迭代器，流迭代器， 反向迭代器，移动迭代器。</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/01/11/c++_迭代器相关/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+<nav id="pagination">
+  
+    <a href="/page/2/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/page/4/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:lee3164.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/boost/">boost</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c</a><small>3</small></li>
+  
+    <li><a href="/tags/c艹/">c艹</a><small>21</small></li>
+  
+    <li><a href="/tags/操作系统/">操作系统</a><small>1</small></li>
+  
+    <li><a href="/tags/数据结构与算法/">数据结构与算法</a><small>1</small></li>
+  
+    <li><a href="/tags/面试题/">面试题</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 看萌baby
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>

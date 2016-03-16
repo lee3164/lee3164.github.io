@@ -1,0 +1,303 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>第 2 页 | 小白程序员的note</title>
+  <meta name="author" content="看萌baby">
+  
+  <meta name="description" content="爱音乐，爱生活。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="小白程序员的note"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="小白程序员的note" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+
+</head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">小白程序员的note</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper">
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-11T06:09:36.000Z"><a href="/2016/03/11/c++_函数与表达式/">2016-03-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/11/c++_函数与表达式/">函数与表达式</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>使用尾置返回类型(trailing return type)：在c++11新标准中规定的简化函数返回类型的方法，如：<code>auto fun(int i) -&gt; int (*)[10];</code>表示返回的是一个指向10个int的数组的指针。</li>
+<li>函数重载中形参：对于顶层const不起作用，对于底层const起作用，如：</li>
+</ul>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/03/11/c++_函数与表达式/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-03-01T10:08:38.000Z"><a href="/2016/03/01/c++_运算符相关知识/">2016-03-01</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/01/c++_运算符相关知识/">运算符相关知识</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>对于/和%，c++11中对于(-m)/n，m/(-n)都等于-(m/n)，对于(-m)%n等于-(m%n)，m%(-n)等于m%n。</li>
+<li>在输出语句中用条件运算符要加括号，因为优先级较低,如：<code>cout &lt;&lt; ((grade &lt; 60) ? &quot;fail&quot; : &quot;pass&quot;);</code></li>
+<li>位运算符：关于符号为的处理没有明确的规定，所以强烈建议仅将位运算符用于处理无符号类型。</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-02-27T06:17:23.000Z"><a href="/2016/02/27/c++_类相关概念/">2016-02-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/02/27/c++_类相关概念/">类相关概念</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>面向对象5大基本原则：单一职责原则（SRP）、开放封闭原则（OCP）、里氏替换原则（LSP）、依赖倒置原则（DIP）、接口隔离原则（ISP）。</li>
+<li>可变数据成员：一个可变数据成员永远不会是const，即使它是对const对象的成员。因此，一个const成员函数可以改变一个可变成员的值。如：</li>
+</ul>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/02/27/c++_类相关概念/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-02-27T06:05:06.000Z"><a href="/2016/02/27/c++_数组与指针/">2016-02-27</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/02/27/c++_数组与指针/">数组与指针</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <p>数组的大小必须在编译的时候就要确定；数组不允许拷贝和赋值，如:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[] = &#123; <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> a2 = a; <span class="comment">//错误</span></span><br><span class="line">a2 = a; <span class="comment">//错误</span></span><br></pre></td></tr></table></figure></p>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/02/27/c++_数组与指针/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2016-02-25T05:18:03.000Z"><a href="/2016/02/25/czxt_关于小数在计算机中的表示/">2016-02-25</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/02/25/czxt_关于小数在计算机中的表示/">关于小数在计算机中的表示</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>规则：整数部分，除二取余，倒序排列；小数部分，乘二取整，顺序排列。比如将6.6转化为二进制，方法如下：<br><strong>整数部分：</strong><br>6除以2得3余0<br>3除以2得1余1<br>1除以2得0余1<br>所以6的二进制表示就是110</li>
+</ul>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/02/25/czxt_关于小数在计算机中的表示/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+
+<nav id="pagination">
+  
+    <a href="/" class="alignleft prev">上一页</a>
+  
+  
+    <a href="/page/3/" class="alignright next">下一页</a>
+  
+  <div class="clearfix"></div>
+</nav></div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜索">
+    <input type="hidden" name="q" value="site:lee3164.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/boost/">boost</a><small>1</small></li>
+  
+    <li><a href="/tags/c/">c</a><small>3</small></li>
+  
+    <li><a href="/tags/c艹/">c艹</a><small>21</small></li>
+  
+    <li><a href="/tags/操作系统/">操作系统</a><small>1</small></li>
+  
+    <li><a href="/tags/数据结构与算法/">数据结构与算法</a><small>1</small></li>
+  
+    <li><a href="/tags/面试题/">面试题</a><small>3</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2016 看萌baby
+  
+</div>
+<div class="clearfix"></div></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+</body>
+</html>
