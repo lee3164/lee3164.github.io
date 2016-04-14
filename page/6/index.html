@@ -52,18 +52,18 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-10-18T06:25:00.000Z"><a href="/2015/10/18/c++_STL之array/">2015-10-18</a></time>
+        <time datetime="2015-12-01T08:35:38.000Z"><a href="/2015/12/01/c++_STL之map，multimap/">2015-12-01</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/10/18/c++_STL之array/">STL之array</a></h1>
+    <h1 class="title"><a href="/2015/12/01/c++_STL之map，multimap/">STL之map，multimap</a></h1>
   
 
     </header>
     <div class="entry">
       
         <ul>
-<li>头文件及声明：<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;array&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">size_t</span> N&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="built_in">array</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>头文件及声明<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Key, <span class="keyword">typename</span> T,</span><br><span class="line">              <span class="keyword">typename</span> Compare = less&lt;key&gt;,</span><br><span class="line">              <span class="keyword">typename</span> Allocator = allocator&lt;pair&lt;<span class="keyword">const</span> Key, T&gt;&gt;&gt;</span><br><span class="line">             <span class="keyword">class</span> <span class="built_in">map</span>; </span><br><span class="line">             </span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Key, <span class="keyword">typename</span> T,</span><br><span class="line">              <span class="keyword">typename</span> Compare = less&lt;key&gt;,</span><br><span class="line">              <span class="keyword">typename</span> Allocator = allocator&lt;pair&lt;<span class="keyword">const</span> Key, T&gt;&gt;&gt;</span><br><span class="line">             <span class="keyword">class</span> <span class="built_in">multimap</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
       
@@ -72,7 +72,7 @@
       
         
           <div class="alignleft">
-            <a href="/2015/10/18/c++_STL之array/#more" class="more-link">Read More</a>
+            <a href="/2015/12/01/c++_STL之map，multimap/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -91,24 +91,25 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-06-21T05:37:04.000Z"><a href="/2015/06/21/c_c杂记/">2015-06-21</a></time>
+        <time datetime="2015-12-01T03:11:46.000Z"><a href="/2015/12/01/mst_leetcode第5题/">2015-12-01</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/06/21/c_c杂记/">c语言杂记</a></h1>
+    <h1 class="title"><a href="/2015/12/01/mst_leetcode第5题/">leetcode第5题</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <h3 id="1-关于移位操作"><a href="#1-关于移位操作" class="headerlink" title="1.关于移位操作"></a>1.关于移位操作</h3><p>移位操作并未规定操作符为正整数，如果是负数或者数字比其位数还要大，将会产生未定义的错误，取决于编译器。</p>
+        <p>5.Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p>
+<p>题目大意就是求出一个字符串的最大回文子串，思路借鉴了讨论区中的某位同学，就是用两个标记依次往两头延伸，如给定a，b，判断s[a-1]与s[b+1]是否相等，若相等则–a, ++b在进行判断，直到不等为止，得出maxlen=b-a+1，代码运行时间4ms。代码如下：</p>
       
     </div>
     <footer>
       
         
           <div class="alignleft">
-            <a href="/2015/06/21/c_c杂记/#more" class="more-link">Read More</a>
+            <a href="/2015/12/01/mst_leetcode第5题/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -127,24 +128,27 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-06-20T01:51:20.000Z"><a href="/2015/06/20/c_printf/">2015-06-20</a></time>
+        <time datetime="2015-11-21T01:19:43.000Z"><a href="/2015/11/21/c++_STL之list/">2015-11-21</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/06/20/c_printf/">c语言printf函数详解</a></h1>
+    <h1 class="title"><a href="/2015/11/21/c++_STL之list/">STL之list</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>printf函数原型，<code>int fprintf(FILE *stream, const char *format, ...)</code><br>format 标签属性是 %[flags][width][.precision][length]specifier，具体讲解如下：<br>
+        <ul>
+<li>头文件及声明<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Allocator = allocator&lt;T&gt;&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="built_in">list</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
       
     </div>
     <footer>
       
         
           <div class="alignleft">
-            <a href="/2015/06/20/c_printf/#more" class="more-link">Read More</a>
+            <a href="/2015/11/21/c++_STL之list/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -163,25 +167,65 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-06-13T03:03:40.000Z"><a href="/2015/06/13/c_c语言可变参数列表/">2015-06-13</a></time>
+        <time datetime="2015-11-13T02:30:54.000Z"><a href="/2015/11/13/c++_STL之foward-list/">2015-11-13</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/06/13/c_c语言可变参数列表/">c语言可变参数列表</a></h1>
+    <h1 class="title"><a href="/2015/11/13/c++_STL之foward-list/">STL之forward_list</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>在c语言中通过定义一下形式的函数来定义可变参数,函数的最后一个参数写出…，定义可变参数需要引入头文件<stdarg.h>，需要使用如下几个宏，首先定义变参列表va_list，然后使用va_start()宏初始化，第一个参数为变参列表，第二个指向变参列表前一个参数，然后使用va_arg宏来获得变参列表中的每个值，第一个参数是变参列表，第二个是想要返回的类型，如int，最后使用完毕之后用va_end宏结束。</p>
+        <ul>
+<li>头文件及声明<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line">    C++11</span><br><span class="line">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;forward_list&gt;</span></span></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Allocator = allocator&lt;T&gt;&gt;</span><br><span class="line">    <span class="keyword">class</span> forward_list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
       
     </div>
     <footer>
       
         
           <div class="alignleft">
-            <a href="/2015/06/13/c_c语言可变参数列表/#more" class="more-link">Read More</a>
+            <a href="/2015/11/13/c++_STL之foward-list/#more" class="more-link">Read More</a>
           </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time datetime="2015-11-11T06:27:16.000Z"><a href="/2015/11/11/c++_STL之deque/">2015-11-11</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2015/11/11/c++_STL之deque/">STL之deque</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li>头文件及声明<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Allocator = allocator&lt;T&gt;&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="built_in">deque</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>deque可以在头尾进行快速的插入，其他操作类似与vector。但其实现确实较为复杂，有关其实现详见<a href="http://blog.csdn.net/hackbuteer1/article/details/7729451" target="_blank" rel="external">csdn博客</a></p>
+
+      
+    </div>
+    <footer>
+      
         
         
       
@@ -198,6 +242,8 @@
   
     <a href="/page/5/" class="alignleft prev">上一页</a>
   
+  
+    <a href="/page/7/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
@@ -224,7 +270,9 @@
   
     <li><a href="/tags/操作系统/">操作系统</a><small>1</small></li>
   
-    <li><a href="/tags/数据结构与算法/">数据结构与算法</a><small>1</small></li>
+    <li><a href="/tags/数据结构与算法/">数据结构与算法</a><small>2</small></li>
+  
+    <li><a href="/tags/算法/">算法</a><small>5</small></li>
   
     <li><a href="/tags/面试题/">面试题</a><small>3</small></li>
   

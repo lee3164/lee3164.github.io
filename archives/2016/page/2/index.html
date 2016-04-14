@@ -56,6 +56,48 @@
     <header>
       
         <div class="icon"></div>
+        <time datetime="2016-03-12T14:20:21.000Z"><a href="/2016/03/12/c++_容器适配器/">2016-03-12</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2016/03/12/c++_容器适配器/">c++_容器适配器</a></h1>
+  
+
+    </header>
+    <div class="entry">
+      
+        <ul>
+<li><p>何为容器适配器？<br>容器适配器就是使用标准的STL容器来满足一些特殊的需求。</p>
+</li>
+<li><p>栈stack</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Container = <span class="built_in">deque</span>&lt;T&gt;&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="built_in">stack</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+      
+    </div>
+    <footer>
+      
+        
+          <div class="alignleft">
+            <a href="/2016/03/12/c++_容器适配器/#more" class="more-link">Read More</a>
+          </div>
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+  
+    <article class="post">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
         <time datetime="2016-03-11T06:09:36.000Z"><a href="/2016/03/11/c++_函数与表达式/">2016-03-11</a></time>
       
       
@@ -95,64 +137,25 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-03-01T10:08:38.000Z"><a href="/2016/03/01/c++_运算符相关知识/">2016-03-01</a></time>
+        <time datetime="2016-03-05T14:18:22.000Z"><a href="/2016/03/05/跳台阶问题及其变种/">2016-03-05</a></time>
       
       
   
-    <h1 class="title"><a href="/2016/03/01/c++_运算符相关知识/">运算符相关知识</a></h1>
-  
-
-    </header>
-    <div class="entry">
-      
-        <ul>
-<li>对于/和%，c++11中对于(-m)/n，m/(-n)都等于-(m/n)，对于(-m)%n等于-(m%n)，m%(-n)等于m%n。</li>
-<li>在输出语句中用条件运算符要加括号，因为优先级较低,如：<code>cout &lt;&lt; ((grade &lt; 60) ? &quot;fail&quot; : &quot;pass&quot;);</code></li>
-<li>位运算符：关于符号为的处理没有明确的规定，所以强烈建议仅将位运算符用于处理无符号类型。</li>
-</ul>
-
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-  
-    <article class="post">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2016-02-27T06:17:23.000Z"><a href="/2016/02/27/c++_类相关概念/">2016-02-27</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2016/02/27/c++_类相关概念/">类相关概念</a></h1>
+    <h1 class="title"><a href="/2016/03/05/跳台阶问题及其变种/">跳台阶问题及其变种</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <ul>
-<li>面向对象5大基本原则：单一职责原则（SRP）、开放封闭原则（OCP）、里氏替换原则（LSP）、依赖倒置原则（DIP）、接口隔离原则（ISP）。</li>
-<li>可变数据成员：一个可变数据成员永远不会是const，即使它是对const对象的成员。因此，一个const成员函数可以改变一个可变成员的值。如：</li>
-</ul>
+        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>一个青蛙跳台阶，一次可以跳一步，也可以跳两步，则这只青蛙跳上n级台阶一共有多少种方法？</p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>类似斐波拉契数列，青蛙跳上第n级台阶，不是从第n-1级就是n-2级跳上来的，故可以转换为n-1和n-2的问题，即<code>f(n)=f(n-1)+f(n-2)</code>，就是一个斐波拉契数列的问题。</p>
       
     </div>
     <footer>
       
         
           <div class="alignleft">
-            <a href="/2016/02/27/c++_类相关概念/#more" class="more-link">Read More</a>
+            <a href="/2016/03/05/跳台阶问题及其变种/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -171,24 +174,25 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-02-27T06:05:06.000Z"><a href="/2016/02/27/c++_数组与指针/">2016-02-27</a></time>
+        <time datetime="2016-03-04T13:48:57.000Z"><a href="/2016/03/04/斐波拉契数列的非递归解法/">2016-03-04</a></time>
       
       
   
-    <h1 class="title"><a href="/2016/02/27/c++_数组与指针/">数组与指针</a></h1>
+    <h1 class="title"><a href="/2016/03/04/斐波拉契数列的非递归解法/">斐波拉契数列的非递归解法</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>数组的大小必须在编译的时候就要确定；数组不允许拷贝和赋值，如:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[] = &#123; <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> a2 = a; <span class="comment">//错误</span></span><br><span class="line">a2 = a; <span class="comment">//错误</span></span><br></pre></td></tr></table></figure></p>
+        <p>对于递归的解法较为简单，但是可能造成栈溢出这种现象。</p>
+<p>斐波拉契数列的第0项为0，第一项为1，以后的每一项是前两项的和。代码如下：</p>
       
     </div>
     <footer>
       
         
           <div class="alignleft">
-            <a href="/2016/02/27/c++_数组与指针/#more" class="more-link">Read More</a>
+            <a href="/2016/03/04/斐波拉契数列的非递归解法/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -207,26 +211,25 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2016-02-25T05:18:03.000Z"><a href="/2016/02/25/czxt_关于小数在计算机中的表示/">2016-02-25</a></time>
+        <time datetime="2016-03-03T05:35:05.000Z"><a href="/2016/03/03/进栈出栈顺序问题/">2016-03-03</a></time>
       
       
   
-    <h1 class="title"><a href="/2016/02/25/czxt_关于小数在计算机中的表示/">关于小数在计算机中的表示</a></h1>
+    <h1 class="title"><a href="/2016/03/03/进栈出栈顺序问题/">进栈出栈顺序问题</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <ul>
-<li>规则：整数部分，除二取余，倒序排列；小数部分，乘二取整，顺序排列。比如将6.6转化为二进制，方法如下：<br><strong>整数部分：</strong><br>6除以2得3余0<br>3除以2得1余1<br>1除以2得0余1<br>所以6的二进制表示就是110</li>
-</ul>
+        <h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4，5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。</p>
+<h3 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h3><p>对于每一个弹出的元素，在他之前的元素肯定在栈中，例如弹出序列4,5,3,2,2，这个序列4第一个弹出，那么1,2,3，4依次入栈，弹出4，然后5入栈，弹出5，最后弹出3,2,1，对于4,3,5,1,2这个序列，1,2,3,4入栈，4弹出，3弹出，然后5入栈，弹出5，此时栈中top位置的元素是2，不是1，因此此序列错误。</p>
       
     </div>
     <footer>
       
         
           <div class="alignleft">
-            <a href="/2016/02/25/czxt_关于小数在计算机中的表示/#more" class="more-link">Read More</a>
+            <a href="/2016/03/03/进栈出栈顺序问题/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -273,7 +276,9 @@
   
     <li><a href="/tags/操作系统/">操作系统</a><small>1</small></li>
   
-    <li><a href="/tags/数据结构与算法/">数据结构与算法</a><small>1</small></li>
+    <li><a href="/tags/数据结构与算法/">数据结构与算法</a><small>2</small></li>
+  
+    <li><a href="/tags/算法/">算法</a><small>5</small></li>
   
     <li><a href="/tags/面试题/">面试题</a><small>3</small></li>
   

@@ -56,25 +56,25 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-12-01T03:11:46.000Z"><a href="/2015/12/01/mst_leetcode第5题/">2015-12-01</a></time>
+        <time datetime="2015-12-17T05:46:01.000Z"><a href="/2015/12/17/排序算法/">2015-12-17</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/12/01/mst_leetcode第5题/">leetcode第5题</a></h1>
+    <h1 class="title"><a href="/2015/12/17/排序算法/">排序算法</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <p>5.Given a string S, find the longest palindromic substring in S. You may assume that the maximum length of S is 1000, and there exists one unique longest palindromic substring.</p>
-<p>题目大意就是求出一个字符串的最大回文子串，思路借鉴了讨论区中的某位同学，就是用两个标记依次往两头延伸，如给定a，b，判断s[a-1]与s[b+1]是否相等，若相等则–a, ++b在进行判断，直到不等为止，得出maxlen=b-a+1，代码运行时间4ms。代码如下：</p>
+        <h2 id="基于比较的排序"><a href="#基于比较的排序" class="headerlink" title="基于比较的排序"></a>基于比较的排序</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>下面所介绍的几种算法都是基于比较的排序，所谓基于比较的排序，就是通过比较大小来决定位置，可以通过决策树来分析这个过程。</p>
+<h3 id="时间下界证明"><a href="#时间下界证明" class="headerlink" title="时间下界证明"></a>时间下界证明</h3><p>对于任意的一颗决策树，叶子节点代表一次排序，故n个元素应该有n!个排序，即叶子节点为n!个，假设决策树高度为h，而对于一颗二叉树，节点树最多为2^h，故2^h &gt;= n!，可以得出h &gt;= lg(n!) = Ω(nlgn)。</p>
       
     </div>
     <footer>
       
         
           <div class="alignleft">
-            <a href="/2015/12/01/mst_leetcode第5题/#more" class="more-link">Read More</a>
+            <a href="/2015/12/17/排序算法/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -93,19 +93,19 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-11-21T01:19:43.000Z"><a href="/2015/11/21/c++_STL之list/">2015-11-21</a></time>
+        <time datetime="2015-12-11T12:36:58.000Z"><a href="/2015/12/11/mst_leetcode第9题/">2015-12-11</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/11/21/c++_STL之list/">STL之list</a></h1>
+    <h1 class="title"><a href="/2015/12/11/mst_leetcode第9题/">leetcode第9题</a></h1>
   
 
     </header>
     <div class="entry">
       
         <ul>
-<li>头文件及声明<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Allocator = allocator&lt;T&gt;&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="built_in">list</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>题目：Determine whether an integer is a palindrome. Do this without extra space.</li>
+<li>解析：判断一个数字是否是回文数，即如123321,98789类似的数字，首先负数不是回文数，以0结尾的非负数不是回文数，对于一般的非负数字，只需要将整个数字反转判断是否相等即可，但是一个int类型反转有可能会溢出，这里用到了一个技巧，即反转一半，如123321反转一般，剩下的为123，得到的为123，相等就是回文数字，对于12321，反转后为12，得到的是123，如何判断呢，只需要将得到的除以10就可以判断啦，若想等极为回文数，代码如下，运行时间60ms。</li>
 </ul>
       
     </div>
@@ -113,7 +113,7 @@
       
         
           <div class="alignleft">
-            <a href="/2015/11/21/c++_STL之list/#more" class="more-link">Read More</a>
+            <a href="/2015/12/11/mst_leetcode第9题/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -132,19 +132,20 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-11-13T02:30:54.000Z"><a href="/2015/11/13/c++_STL之foward-list/">2015-11-13</a></time>
+        <time datetime="2015-12-11T02:38:26.000Z"><a href="/2015/12/11/sjjg_图相关/">2015-12-11</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/11/13/c++_STL之foward-list/">STL之forward_list</a></h1>
+    <h1 class="title"><a href="/2015/12/11/sjjg_图相关/">图相关</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <ul>
-<li>头文件及声明<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span><br><span class="line">    C++11</span><br><span class="line">*/</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;forward_list&gt;</span></span></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Allocator = allocator&lt;T&gt;&gt;</span><br><span class="line">    <span class="keyword">class</span> forward_list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+        <p>###1. 图的表示</p>
+<ul>
+<li>邻接矩阵：这种表示方式存储了每一个顶点，因此大小为$o(n^2)$,对于那些稀疏矩阵来说很浪费空间。</li>
+<li>邻接表：存储每一个顶点和其他顶点的关系时将其顶点按升序排列，可以快速定位至某一顶点。</li>
 </ul>
       
     </div>
@@ -152,7 +153,7 @@
       
         
           <div class="alignleft">
-            <a href="/2015/11/13/c++_STL之foward-list/#more" class="more-link">Read More</a>
+            <a href="/2015/12/11/sjjg_图相关/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -171,26 +172,28 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-11-11T06:27:16.000Z"><a href="/2015/11/11/c++_STL之deque/">2015-11-11</a></time>
+        <time datetime="2015-12-10T10:13:35.000Z"><a href="/2015/12/10/c++_STL之set，multiset/">2015-12-10</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/11/11/c++_STL之deque/">STL之deque</a></h1>
+    <h1 class="title"><a href="/2015/12/10/c++_STL之set，multiset/">STL之set，multiset</a></h1>
   
 
     </header>
     <div class="entry">
       
         <ul>
-<li>头文件及声明<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Allocator = allocator&lt;T&gt;&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="built_in">deque</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure>
+<li>头文件及声明<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T,</span><br><span class="line">              <span class="keyword">typename</span> Compare = less&lt;T&gt;,</span><br><span class="line">              <span class="keyword">typename</span> Allocator = allocator&lt;T&gt;&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="built_in">set</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T,</span><br><span class="line">              <span class="keyword">typename</span> Compare = less&lt;T&gt;,</span><br><span class="line">              <span class="keyword">typename</span> Allocator = allocator&lt;T&gt;&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="built_in">multiset</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>deque可以在头尾进行快速的插入，其他操作类似与vector。但其实现确实较为复杂，有关其实现详见<a href="http://blog.csdn.net/hackbuteer1/article/details/7729451" target="_blank" rel="external">csdn博客</a></p>
-
       
     </div>
     <footer>
       
+        
+          <div class="alignleft">
+            <a href="/2015/12/10/c++_STL之set，multiset/#more" class="more-link">Read More</a>
+          </div>
         
         
       
@@ -208,27 +211,24 @@
     <header>
       
         <div class="icon"></div>
-        <time datetime="2015-10-20T14:26:25.000Z"><a href="/2015/10/20/c++_STL之vector/">2015-10-20</a></time>
+        <time datetime="2015-12-04T03:16:10.000Z"><a href="/2015/12/04/leetcode第8题/">2015-12-04</a></time>
       
       
   
-    <h1 class="title"><a href="/2015/10/20/c++_STL之vector/">STL之vector</a></h1>
+    <h1 class="title"><a href="/2015/12/04/leetcode第8题/">leetcode第8题</a></h1>
   
 
     </header>
     <div class="entry">
       
-        <ul>
-<li>头文件及声明<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> <span class="built_in">std</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Allocator = allocator&lt;T&gt;&gt;</span><br><span class="line">    <span class="keyword">class</span> <span class="built_in">vector</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+        <p>题目大意是实现自己的atoi函数，即将将字符串中的数字转换为int型，如果不能转换则将其转换为0，若超过整形范围。则以最大值或最小值保存。代码如下，运行时间12ms.ret保存的是结果，sign标记第一个字符是+或-，代码首先将i定位到第一个不是空格的位置，base保存了INT_MAX/10的结果，若ret&gt;base了，则ret<em>10必定大于INT_MAX，若ret=base，而INT_MAX-ret</em>10 =7,则说明当前的字符不能大于7，否则就超过了最大整数.。</p>
       
     </div>
     <footer>
       
         
           <div class="alignleft">
-            <a href="/2015/10/20/c++_STL之vector/#more" class="more-link">Read More</a>
+            <a href="/2015/12/04/leetcode第8题/#more" class="more-link">Read More</a>
           </div>
         
         
@@ -275,7 +275,9 @@
   
     <li><a href="/tags/操作系统/">操作系统</a><small>1</small></li>
   
-    <li><a href="/tags/数据结构与算法/">数据结构与算法</a><small>1</small></li>
+    <li><a href="/tags/数据结构与算法/">数据结构与算法</a><small>2</small></li>
+  
+    <li><a href="/tags/算法/">算法</a><small>5</small></li>
   
     <li><a href="/tags/面试题/">面试题</a><small>3</small></li>
   
